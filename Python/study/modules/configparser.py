@@ -57,11 +57,6 @@ for key in config['bitbucket.org']:
     print(key)
 
 
-# user
-# serveraliveinterval
-# compression
-# compressionlevel
-# forwardx11
 
 
 print(config.options('bitbucket.org'))#['user', 'serveraliveinterval', 'compression', 'compressionlevel', 'forwardx11']
@@ -70,3 +65,14 @@ print(config.items('bitbucket.org'))  #[('serveraliveinterval', '45'), ('compres
 print(config.get('bitbucket.org','compression'))#yes
 
 
+####删,改,增(config.write(open('i.cfg', "w")))
+
+
+config.add_section('yuan')
+
+config.remove_section('topsecret.server.com')
+config.remove_option('bitbucket.org','user')
+
+config.set('bitbucket.org','k1','11111')
+
+config.write(open('i.cfg', "w"))
